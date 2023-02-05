@@ -1,0 +1,6 @@
+.idea/
+/target
+*.rox
+*.elf
+*.o
+*.target-options.dump

@@ -1,0 +1,15 @@
+[package]
+name = "dreamcast_rust_cargo"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "dc_rust.elf"
+path = "src/main.rs"
+
+[profile.dev]
+opt-level = 0
+
+[dependencies]
