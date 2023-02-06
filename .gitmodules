@@ -1,0 +1,3 @@
+[submodule "kos-rust-bindings"]
+	path = kos-rust-bindings
+	url = https://github.com/spencerelliott/kos-rust-bindings.git

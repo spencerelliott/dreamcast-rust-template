@@ -3,4 +3,5 @@
 *.rox
 *.elf
 *.o
+*.out
 *.target-options.dump
