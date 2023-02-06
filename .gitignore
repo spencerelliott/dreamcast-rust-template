@@ -4,4 +4,5 @@
 *.elf
 *.o
 *.out
+src/kos.rs
 *.target-options.dump
