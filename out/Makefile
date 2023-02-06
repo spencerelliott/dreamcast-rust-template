@@ -3,14 +3,17 @@ include $(KOS_BASE)/Makefile.rules
 
 PROJECT_NAME=dc_rust
 
-SOURCES := $(shell find "../src/" -name '*.rs') ../wrapper/wrapper.c
+SOURCES := $(shell find "../src/" -name '*.rs') $(shell if [ -d "../kos-rust-bindings" ]; then echo "../kos-rust-bindings/wrapper/wrapper.c"; fi)
 RS_OBJS = $(SOURCES:.rs=.o)
 OBJS = $(RS_OBJS:.c=.o)
 
-all: rm-elf $(PROJECT_NAME).elf
+all: rm-elf copy-bindings $(PROJECT_NAME).elf
 
 %.o: %.rs
 	kos-cc -frust-incomplete-and-experimental-compiler-do-not-use $(CFLAGS) -c $< -o $@
+
+copy-bindings:
+	$(shell [ -d "../kos-rust-bindings" ] && cp ../kos-rust-bindings/kos.rs ../src/kos.rs)
 
 clean:
 	rm -f $(PROJECT_NAME).elf $(OBJS)
