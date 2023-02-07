@@ -25,6 +25,7 @@ rm-elf:
 $(PROJECT_NAME).elf: $(OBJS)
 	kos-cc -o $(PROJECT_NAME).elf $(OBJS)
 	rm -f $(OBJS)
+	rm -f *.rox
 
 run: $(PROJECT_NAME)
 	$(KOS_LOADER) $(PROJECT_NAME).elf
