@@ -13,7 +13,7 @@ all: rm-elf copy-bindings $(PROJECT_NAME).elf
 	kos-cc -frust-incomplete-and-experimental-compiler-do-not-use $(CFLAGS) -c $< -o $@
 
 copy-bindings:
-	$(shell [ -d "../kos-rust-bindings" ] && cp ../kos-rust-bindings/kos.rs ../src/kos.rs)
+	python3 ../kos-rust-bindings/generate.py -d ../kos-rust-bindings/src -o ../src
 
 clean:
 	rm -f $(PROJECT_NAME).elf $(OBJS)
